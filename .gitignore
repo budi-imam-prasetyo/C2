@@ -1,0 +1,13 @@
+*
+!*/
+!**/*.c
+!**/*.txt
+!README.md
+!.gitignore
+!index.md
+!index.html
+!_config.yml
+!googledac24e3737d66637.html
+.Afolder/
+.vscode/
+.cache/
