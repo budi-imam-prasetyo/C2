@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node
-{
+typedef struct node {
     int data;
     struct node *next;
-};
+} Node;
 
-struct node *head = NULL;
+Node *head = NULL;
 
-struct node *pembuatNode(int item)
+Node *pembuatNode(int item)
 {
-    struct node *ptr = (struct node *)malloc(sizeof(struct node));
+    Node *ptr = (Node *)malloc(sizeof(Node));
     if (ptr != NULL)
     {
         ptr->data = item;
@@ -22,7 +21,7 @@ struct node *pembuatNode(int item)
 
 void InsertDiPosisiTertentu(int item, int posisi)
 {
-    struct node *ptr = pembuatNode(item);
+    Node *ptr = pembuatNode(item);
     if (ptr != NULL)
     {
         if (head == NULL)
@@ -38,7 +37,7 @@ void InsertDiPosisiTertentu(int item, int posisi)
             printf("Node dengan nilai %d berhasil ditambahkan di awal.\n", item);
             return;
         }
-        struct node *temp = head;
+        Node *temp = head;
         int counter = 1;
         while (temp->next != NULL && counter < posisi)
         {
@@ -61,7 +60,7 @@ void InsertDiPosisiTertentu(int item, int posisi)
 
 void displayList()
 {
-    struct node *current = head;
+    Node *current = head;
     if (current == NULL)
     {
         printf("Linked List kosong.\n");
@@ -95,7 +94,7 @@ int main()
     printf("\nTampilan Linked List:\n");
     displayList();
 
-    struct node *temp;
+    Node *temp;
     while (head != NULL)
     {
         temp = head;

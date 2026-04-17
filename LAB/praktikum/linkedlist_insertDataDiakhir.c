@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+typedef struct {
     int data;
-    struct node *next;
-};
+    Node *next;
+} Node;
 
-struct node *head = NULL;
+Node *head = NULL;
 
-struct node* pembuatNode(int itemp){
-    struct node *temp = (struct node*)malloc(sizeof(struct node));
+Node* pembuatNode(int itemp){
+    Node *temp = (Node*)malloc(sizeof(Node));
     if(temp != NULL){
         temp->data =itemp;
         temp->next = NULL;
@@ -19,12 +19,12 @@ struct node* pembuatNode(int itemp){
 }
 
 void InsertDiAkhir(int itemp){
-    struct node *temp = pembuatNode(itemp);
+    Node *temp = pembuatNode(itemp);
     if(temp != NULL){
         if(head == NULL){
             head = temp;
         }else{
-            struct node *current = head;
+            Node *current = head;
             while(current->next != NULL){
                 current = current->next;
             }
@@ -36,7 +36,7 @@ void InsertDiAkhir(int itemp){
     }
 }
 void InsertDiAwal(int itemp){
-    struct node *temp = pembuatNode(itemp);
+    Node *temp = pembuatNode(itemp);
     if(temp != NULL){
         temp->next = head;
         head = temp;
@@ -47,7 +47,7 @@ void InsertDiAwal(int itemp){
 }
 
 void displayList(){
-    struct node *current = head;
+    Node *current = head;
     if(current == NULL){
         printf("Linked List kosong.\n");
         return;
@@ -75,7 +75,7 @@ int main(){
     printf("\nTampilan Linked List:\n");
     displayList();
 
-    struct node *temp;
+    Node *temp;
     while(head != NULL){
         temp = head;
         head = head->next;

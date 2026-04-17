@@ -6,16 +6,16 @@
 int stack[MAX_SIZE];
 int top = -1;
 
-struct stack
+typedef struct stack
 {
     int data;
     struct stack *next;
     struct stack *top;
-};
+} Stack;
 
-struct stack *push(struct stack *top, int val){
-    struct stack *ptr;
-    ptr = (struct stack *)malloc(sizeof(struct stack*));
+Stack *push(Stack *top, int val){
+    Stack *ptr;
+    ptr = malloc(sizeof(Stack));
     ptr->data = val;
     if(top == NULL){
         top = ptr;
@@ -26,8 +26,9 @@ struct stack *push(struct stack *top, int val){
     }
     return top;
 };
-struct stack *pop(struct stack *top){
-    struct stack *ptr;
+
+Stack *pop(Stack *top){
+    Stack *ptr;
     ptr = top;
     if(top == NULL){
         printf("\n Stack Underflow");
@@ -38,27 +39,28 @@ struct stack *pop(struct stack *top){
     }
     return top;
 };
-struct stack *display(struct stack *top){
-    struct stack *ptr;
+
+Stack *display(Stack *top){
+    Stack *ptr;
     ptr = top;
     if(top == NULL){
         printf("\n Stack is Empty");
     }else{
         while(ptr != NULL){
             printf("\n%d", ptr->data);
-            ptr = ptr-> next;
+            ptr = ptr->next;
         }
     }
     return top;
 };
-int peek (struct stack *top){
+int peek (Stack *top){
     return top -> data;
 }
 
 int main()
 {
     int data;
-    struct stack *top = NULL;
+    Stack *top = NULL;
     while (1)
     {
         printf("Masukkan data (0 untuk keluar): ");

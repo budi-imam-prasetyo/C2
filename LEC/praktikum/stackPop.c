@@ -16,8 +16,6 @@ void push(int data)
     stack[++top] = data;
 }
 
-
-
 int pop()
 {
     if (top == -1)
@@ -59,20 +57,6 @@ int main()
     display();
     printf("Pop: %d\n", pop());
     printf("Setelah di Pop: ");
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
     display();
     return 0;
 }

@@ -52,7 +52,7 @@ void deleteawal(){
         printf("Tidak ada Video pada Playlist yang bisa di hapus\n");
         return;
     }
-    struct Node *temp = head;
+    Node *temp = head;
     head = head->next;
     free(temp);
     printf("Video Playlist berhasil di hapus\n");
@@ -63,7 +63,7 @@ void deleteakhir(){
         printf("Tidak ada Video pada Playlist yang bisa di hapus\n");
         return;
     }
-    struct Node *temp = tail;
+    Node *temp = tail;
     tail = tail->prev;
     free(temp);
     printf("Video Playlist berhasil di hapus\n");
@@ -74,7 +74,7 @@ void tampilan(){
         printf("Tidak ada Video pada Playlist\n");
         return;
     }
-    struct Node *temp = head;
+    Node *temp = head;
     while (temp != NULL){
         printf("====PlayList Kamu====\n");
         printf("Judul: %s\n", temp->judul);

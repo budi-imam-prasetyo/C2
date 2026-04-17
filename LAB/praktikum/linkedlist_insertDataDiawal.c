@@ -1,36 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+typedef struct Node {
     int data;
-    struct node *next;
-};
+    struct Node *next;
+} Node;
 
-struct node *head = NULL;
+Node *head = NULL;
 
-struct node* pembuatNode(int itemp){
-    struct node *temp = (struct node*)malloc(sizeof(struct node));
+Node* pembuatNode(int data){
+    Node *temp = malloc(sizeof(Node));
     if(temp != NULL){
-        temp->data =itemp;
+        temp->data =data;
         temp->next = NULL;
         return temp;
     }
     return NULL;
 }
 
-void InsertDiAwal(int itemp){
-    struct node *temp = pembuatNode(itemp);
+void InsertDiAwal(int data){
+    Node *temp = pembuatNode(data);
     if(temp != NULL){
         temp->next = head;
         head = temp;
-        printf("Node dengan nilai %d berhasil ditambahkan di awal.\n", itemp);
+        printf("Node dengan nilai %d berhasil ditambahkan di awal.\n", data);
     }else{
         printf("Gagal membuat node baru.\n");
     }
 }
 
 void displayList(){
-    struct node *current = head;
+    Node *current = head;
     if(current == NULL){
         printf("Linked List kosong.\n");
         return;
@@ -57,7 +57,7 @@ int main(){
     printf("\nTampilan Linked List:\n");
     displayList();
 
-    struct node *temp;
+    Node *temp;
     while(head != NULL){
         temp = head;
         head = head->next;

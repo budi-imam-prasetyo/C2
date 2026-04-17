@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-struct node {
+typedef struct node {
     char nama[20];
     int usia;
     struct node *link;
-};
+} Node;
 
 int main(){
-    struct node *head = (struct node*)malloc(sizeof(struct node));
+    Node *head = (Node*)malloc(sizeof(Node));
     head->nama[0] = 'A';
     head->nama[1] = 'l';
     head->nama[2] = 'i';
@@ -15,12 +15,12 @@ int main(){
     head->usia = 10;
     head->link = NULL;
     
-    struct node *current = (struct node*)malloc(sizeof(struct node));
+    Node *current = (Node*)malloc(sizeof(Node));
     current->usia = 11;
     current->link = NULL;
     head->link = current;
     
-    current = (struct node*)malloc(sizeof(struct node));
+    current = (Node*)malloc(sizeof(Node));
     current->usia = 12;
     current->link = NULL;
     head->link->link = current;

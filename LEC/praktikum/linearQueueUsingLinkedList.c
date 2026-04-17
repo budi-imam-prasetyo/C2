@@ -10,7 +10,7 @@ Node *front = NULL, *rear = NULL;
 
 Node *newNode(int data)
 {
-    Node *temp = (Node *)malloc(sizeof(Node));
+    Node *temp = malloc(sizeof(Node));
     temp->data = data;
     temp->next = NULL;
     return temp;

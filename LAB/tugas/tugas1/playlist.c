@@ -3,21 +3,21 @@
 #include <string.h>
 
 // Struktur Node (minimal 4 atribut)
-struct Node {
+typedef struct Node {
     char judul[100];
     char channel[100];
     int durasi;       // dalam detik
     int tahun;
     struct Node* next;
     struct Node* prev;
-};
+} Node;
 
-struct Node* head = NULL;
-struct Node* tail = NULL;
+Node* head = NULL;
+Node* tail = NULL;
 
 // Membuat node baru
-struct Node* createNode(char judul[], char channel[], int durasi, int tahun) {
-    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
+Node* createNode(char judul[], char channel[], int durasi, int tahun) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
     strcpy(newNode->judul, judul);
     strcpy(newNode->channel, channel);
     newNode->durasi = durasi;
@@ -29,7 +29,7 @@ struct Node* createNode(char judul[], char channel[], int durasi, int tahun) {
 
 // Insert di awal
 void insertAwal(char judul[], char channel[], int durasi, int tahun) {
-    struct Node* newNode = createNode(judul, channel, durasi, tahun);
+    Node* newNode = createNode(judul, channel, durasi, tahun);
 
     if (head == NULL) {
         head = tail = newNode;
@@ -42,7 +42,7 @@ void insertAwal(char judul[], char channel[], int durasi, int tahun) {
 
 // Insert di akhir
 void insertAkhir(char judul[], char channel[], int durasi, int tahun) {
-    struct Node* newNode = createNode(judul, channel, durasi, tahun);
+    Node* newNode = createNode(judul, channel, durasi, tahun);
 
     if (tail == NULL) {
         head = tail = newNode;
@@ -60,7 +60,7 @@ void deleteAwal() {
         return;
     }
 
-    struct Node* temp = head;
+    Node* temp = head;
 
     if (head == tail) {
         head = tail = NULL;
@@ -79,7 +79,7 @@ void deleteAkhir() {
         return;
     }
 
-    struct Node* temp = tail;
+    Node* temp = tail;
 
     if (head == tail) {
         head = tail = NULL;
@@ -93,7 +93,7 @@ void deleteAkhir() {
 
 // Traverse (menampilkan data)
 void tampilkan() {
-    struct Node* temp = head;
+    Node* temp = head;
 
     if (temp == NULL) {
         printf("Playlist kosong!\n");

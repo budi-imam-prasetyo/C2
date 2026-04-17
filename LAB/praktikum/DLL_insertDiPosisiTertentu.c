@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node {
+typedef struct Node {
     struct Node *prev;
     int data;
     struct Node *next;
-};
+} Node;
 
-struct Node *head = NULL;
-struct Node *tail = NULL;
+Node *head = NULL;
+Node *tail = NULL;
 
-struct Node* membuatNode(int nilai){
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+Node* membuatNode(int nilai){
+    Node *newNode = (Node *)malloc(sizeof(Node));
 
     if(newNode == NULL){
         printf("Gagal alokasi memori!\n");
@@ -23,7 +23,7 @@ struct Node* membuatNode(int nilai){
     return newNode;
 };
 void insertDiposisiTertentu(int nilai, int posisi){
-    struct Node *ptr = membuatNode(nilai);
+    Node *ptr = membuatNode(nilai);
 
     if(ptr != NULL){
         if (head == NULL){
@@ -40,7 +40,7 @@ void insertDiposisiTertentu(int nilai, int posisi){
             return;
         }
 
-        struct Node *temp = head;
+        Node *temp = head;
         int counter = 1;
 
         while(temp->next != NULL && counter < posisi){
@@ -73,7 +73,7 @@ void insertDiposisiTertentu(int nilai, int posisi){
 
 void tampilMaju(){
 
-    struct Node *temp = head;
+    Node *temp = head;
     printf("\nData dari awal ke akhir:\n");
     while(temp != NULL){
         printf("%d <->", temp->data);
