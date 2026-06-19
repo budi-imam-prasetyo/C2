@@ -1,25 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct Node{
     int data;
-    Node *next;
+    struct Node *next;
 } Node;
 
 Node *head = NULL;
 
-Node* pembuatNode(int itemp){
+Node* pembuatNode(int data){
     Node *temp = (Node*)malloc(sizeof(Node));
     if(temp != NULL){
-        temp->data =itemp;
+        temp->data =data;
         temp->next = NULL;
         return temp;
     }
     return NULL;
 }
 
-void InsertDiAkhir(int itemp){
-    Node *temp = pembuatNode(itemp);
+void InsertDiAkhir(int data){
+    Node *temp = pembuatNode(data);
     if(temp != NULL){
         if(head == NULL){
             head = temp;
@@ -35,16 +35,16 @@ void InsertDiAkhir(int itemp){
         printf("Gagal membuat node baru.\n");
     }
 }
-void InsertDiAwal(int itemp){
-    Node *temp = pembuatNode(itemp);
-    if(temp != NULL){
-        temp->next = head;
-        head = temp;
-        printf("Node dengan nilai %d berhasil ditambahkan di awal.\n", itemp);
-    }else{
-        printf("Gagal membuat node baru.\n");
-    }
-}
+// void InsertDiAwal(int data){
+//     Node *temp = pembuatNode(data);
+//     if(temp != NULL){
+//         temp->next = head;
+//         head = temp;
+//         printf("Node dengan nilai %d berhasil ditambahkan di awal.\n", data);
+//     }else{
+//         printf("Gagal membuat node baru.\n");
+//     }
+// }
 
 void displayList(){
     Node *current = head;
@@ -66,7 +66,7 @@ int main(){
         printf("\nMasukkan nilai pada node pertama yang anda inginkan?\n");
         scanf("%d", &item);
 
-        InsertDiAwal(item);
+        // InsertDiAwal(item);
         InsertDiAkhir(item);
         printf("\nTekan 1 untuk memasukkan data kembali atau tekan 0 untuk mengakhiri: ");
         scanf("%d", &pilihan);

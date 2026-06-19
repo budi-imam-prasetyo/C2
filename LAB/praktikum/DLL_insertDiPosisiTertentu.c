@@ -12,7 +12,6 @@ Node *tail = NULL;
 
 Node* membuatNode(int nilai){
     Node *newNode = (Node *)malloc(sizeof(Node));
-
     if(newNode == NULL){
         printf("Gagal alokasi memori!\n");
         exit (1);
@@ -21,7 +20,8 @@ Node* membuatNode(int nilai){
     newNode->data = nilai;
     newNode->next = NULL;
     return newNode;
-};
+}
+
 void insertDiposisiTertentu(int nilai, int posisi){
     Node *ptr = membuatNode(nilai);
 
